@@ -1,0 +1,884 @@
+{
+  "ARI": {
+    "venue": "Chase Field",
+    "source_url": "https://en.wikipedia.org/wiki/Chase_Field",
+    "field_size_text": "Left Field \u2013 330 ft (101 m) Left-Center \u2013 374 ft (114 m) Left-Center (deep) \u2013 413 ft (126 m) Center Field \u2013 407 ft (124 m) Right-Center (deep) \u2013 413 ft (126 m) Right-Center \u2013 374 ft (114 m) Right Field \u2013 334 ft (102 m)",
+    "outfield_points": [
+      {
+        "angle": -40,
+        "distance": 330
+      },
+      {
+        "angle": -22,
+        "distance": 374
+      },
+      {
+        "angle": -12,
+        "distance": 413
+      },
+      {
+        "angle": 0,
+        "distance": 407
+      },
+      {
+        "angle": 12,
+        "distance": 413
+      },
+      {
+        "angle": 22,
+        "distance": 374
+      },
+      {
+        "angle": 40,
+        "distance": 334
+      }
+    ]
+  },
+  "ATL": {
+    "venue": "Truist Park",
+    "source_url": "https://en.wikipedia.org/wiki/Truist_Park",
+    "field_size_text": "Left field \u2013 335 ft (102 m) Left-center \u2013 385 ft (117 m) Center field \u2013 400 ft (122 m) Right-center \u2013 375 ft (114 m) Right field \u2013 325 ft (99 m)",
+    "outfield_points": [
+      {
+        "angle": -40,
+        "distance": 335
+      },
+      {
+        "angle": -22,
+        "distance": 385
+      },
+      {
+        "angle": 0,
+        "distance": 400
+      },
+      {
+        "angle": 22,
+        "distance": 375
+      },
+      {
+        "angle": 40,
+        "distance": 325
+      }
+    ]
+  },
+  "BAL": {
+    "venue": "Oriole Park at Camden Yards",
+    "source_url": "https://en.wikipedia.org/wiki/Oriole_Park_at_Camden_Yards",
+    "field_size_text": "Left Field Line \u2013 333 ft (101 m) Straight Away Left \u2013 373 ft (117 m) Left Center \u2013 376 ft (121 m) Deep Left Center \u2013 410 ft (125 m) Center Field \u2013 400 ft (122 m) (Not posted) Right Center \u2013 373 ft (114 m) Right Field Line \u2013 318 ft (97 m)",
+    "outfield_points": [
+      {
+        "angle": -45,
+        "distance": 333
+      },
+      {
+        "angle": -40,
+        "distance": 373
+      },
+      {
+        "angle": -30,
+        "distance": 373
+      },
+      {
+        "angle": -22,
+        "distance": 376
+      },
+      {
+        "angle": -12,
+        "distance": 410
+      },
+      {
+        "angle": 0,
+        "distance": 400
+      },
+      {
+        "angle": 22,
+        "distance": 373
+      },
+      {
+        "angle": 45,
+        "distance": 318
+      }
+    ]
+  },
+  "BOS": {
+    "venue": "Fenway Park",
+    "source_url": "https://en.wikipedia.org/wiki/Fenway_Park",
+    "field_size_text": ".mw-parser-output .plainlist ol,.mw-parser-output .plainlist ul{line-height:inherit;list-style:none;margin:0;padding:0}.mw-parser-output .plainlist ol li,.mw-parser-output .plainlist ul li{margin-bottom:0} Left Field : 310 ft (94.5 m) Deep Left-Center : 379 ft (115.5 m) Center Field : 389 ft 9 in (118.8 m) Deep Right-Center : 420 ft (128 m) Right Center : 380 ft (115.8 m) Right Field : 302 ft (92 m) Backstop : 60 ft (18.3 m)",
+    "outfield_points": [
+      {
+        "angle": -40,
+        "distance": 310
+      },
+      {
+        "angle": -12,
+        "distance": 379
+      },
+      {
+        "angle": 0,
+        "distance": 389
+      },
+      {
+        "angle": 12,
+        "distance": 420
+      },
+      {
+        "angle": 22,
+        "distance": 380
+      },
+      {
+        "angle": 40,
+        "distance": 302
+      }
+    ]
+  },
+  "CHC": {
+    "venue": "Wrigley Field",
+    "source_url": "https://en.wikipedia.org/wiki/Wrigley_Field",
+    "field_size_text": "Left field \u2013 355 ft (108.2 m) Left-center \u2013 368 ft (112.2 m) Center field \u2013 400 ft (121.9 m) Right-center \u2013 368 ft (112.2 m) Right field \u2013 353 ft (107.6 m) Backstop \u2013 55 ft (16.8 m) Outfield wall height: Bleachers \u2013 11 ft 6 in (3.5 m) Corners \u2013 15 ft (4.6 m)",
+    "outfield_points": [
+      {
+        "angle": -40,
+        "distance": 355
+      },
+      {
+        "angle": -22,
+        "distance": 368
+      },
+      {
+        "angle": 0,
+        "distance": 400
+      },
+      {
+        "angle": 22,
+        "distance": 368
+      },
+      {
+        "angle": 40,
+        "distance": 353
+      }
+    ]
+  },
+  "CWS": {
+    "venue": "Guaranteed Rate Field",
+    "source_url": "https://en.wikipedia.org/wiki/Rate_Field",
+    "field_size_text": "(2001\u2013present) Left field \u2013 330 ft (100 m) Left-center \u2013 375 ft (114 m) (not posted) Center field \u2013 400 ft (120 m) Right-center \u2013 375 ft (114 m) (not posted) Right field \u2013 335 ft (102 m) Backstop \u2013 60 ft (18 m) Outfield wall height \u2013 8 ft (2.4 m)",
+    "outfield_points": [
+      {
+        "angle": -40,
+        "distance": 330
+      },
+      {
+        "angle": -22,
+        "distance": 375
+      },
+      {
+        "angle": 0,
+        "distance": 400
+      },
+      {
+        "angle": 22,
+        "distance": 375
+      },
+      {
+        "angle": 40,
+        "distance": 335
+      }
+    ]
+  },
+  "CIN": {
+    "venue": "Great American Ball Park",
+    "source_url": "https://en.wikipedia.org/wiki/Great_American_Ball_Park",
+    "field_size_text": "Left Field \u2013 328 ft (100 m) Left-Center \u2013 379 ft (116 m) Center Field \u2013 404 ft (123 m) Right-Center \u2013 370 ft (110 m) Right Field \u2013 325 ft (99 m) Backstop \u2013 55 ft (17 m)",
+    "outfield_points": [
+      {
+        "angle": -40,
+        "distance": 328
+      },
+      {
+        "angle": -22,
+        "distance": 379
+      },
+      {
+        "angle": 0,
+        "distance": 404
+      },
+      {
+        "angle": 22,
+        "distance": 370
+      },
+      {
+        "angle": 40,
+        "distance": 325
+      }
+    ]
+  },
+  "CLE": {
+    "venue": "Progressive Field",
+    "source_url": "https://en.wikipedia.org/wiki/Progressive_Field",
+    "field_size_text": "Left field \u2013 325 feet (99 m) Left-center \u2013 370 feet (113 m) Center field \u2013 400 feet (122 m) Deep center field \u2013 410 feet (125 m) Right-center \u2013 375 feet (114 m) Right field \u2013 325 feet (99 m) Backstop \u2013 60 feet (18 m) Fence height Left field \u2013 19 feet (6 m) Center and right fields \u2013 9 feet (3 m)",
+    "outfield_points": [
+      {
+        "angle": -40,
+        "distance": 325
+      },
+      {
+        "angle": -22,
+        "distance": 370
+      },
+      {
+        "angle": 0,
+        "distance": 410
+      },
+      {
+        "angle": 22,
+        "distance": 375
+      },
+      {
+        "angle": 40,
+        "distance": 325
+      }
+    ]
+  },
+  "COL": {
+    "venue": "Coors Field",
+    "source_url": "https://en.wikipedia.org/wiki/Coors_Field",
+    "field_size_text": "Left Field \u2013 347 feet (106 m) Left-Center \u2013 390 feet (119 m) Center Field \u2013 415 feet (126 m) Right-Center \u2013 375 feet (114 m) Right Field \u2013 350 feet (107 m) Backstop \u2013 56 feet (17 m)",
+    "outfield_points": [
+      {
+        "angle": -40,
+        "distance": 347
+      },
+      {
+        "angle": -22,
+        "distance": 390
+      },
+      {
+        "angle": 0,
+        "distance": 415
+      },
+      {
+        "angle": 22,
+        "distance": 375
+      },
+      {
+        "angle": 40,
+        "distance": 350
+      }
+    ]
+  },
+  "DET": {
+    "venue": "Comerica Park",
+    "source_url": "https://en.wikipedia.org/wiki/Comerica_Park",
+    "field_size_text": "Left field \u2013 342 ft (104 m) Left-center \u2013 370 ft (110 m) Center field \u2013 412 ft (126 m) Right-center \u2013 365 ft (111 m) Right field \u2013 330 ft (100 m)",
+    "outfield_points": [
+      {
+        "angle": -40,
+        "distance": 342
+      },
+      {
+        "angle": -22,
+        "distance": 370
+      },
+      {
+        "angle": 0,
+        "distance": 412
+      },
+      {
+        "angle": 22,
+        "distance": 365
+      },
+      {
+        "angle": 40,
+        "distance": 330
+      }
+    ]
+  },
+  "HOU": {
+    "venue": "Daikin Park",
+    "source_url": "https://en.wikipedia.org/wiki/Daikin_Park",
+    "field_size_text": "Left field \u2013 315 feet (96.0 m) Left-center \u2013 366 feet (111.6 m) Left-center (deep) \u2013 399 feet (121.6 m) Center field \u2013 409 feet (124.7 m) Right-center (deep) 408 feet (124.4 m) Right-center \u2013 370 feet (112.8 m) Right field \u2013 326 feet (99.4 m) Backstop \u2013 49 feet (15 m)",
+    "outfield_points": [
+      {
+        "angle": -40,
+        "distance": 315
+      },
+      {
+        "angle": -22,
+        "distance": 366
+      },
+      {
+        "angle": 0,
+        "distance": 409
+      },
+      {
+        "angle": 22,
+        "distance": 370
+      },
+      {
+        "angle": 40,
+        "distance": 326
+      }
+    ]
+  },
+  "KC": {
+    "venue": "Kauffman Stadium",
+    "source_url": "https://en.wikipedia.org/wiki/Kauffman_Stadium",
+    "field_size_text": "Left Field \u2013 330 ft (101 m) Left-Center \u2013 385 ft (117 m) (1973-1994) 375 ft (114 m) (1995-2003) 385 ft (117 m) (2004-2008) 387 ft (118 m) (2009-2025) 379 ft (116 m) (2026-present) Center Field \u2013 410 ft (125 m) (1973-1994) 400 ft (122 m) (1995-2003) 410 ft (125 m) (2004-present) Right-Center \u2013 385 ft (117 m) (1973-1994) 375 ft (114 m) (1995-2003) 385 ft (117 m) (2004-2008) 387 ft (118 m) (2009-2025) 379 ft (116 m) (2026-present) Right Field \u2013 330 ft (101 m) Backstop \u2013 60 ft (18 m) (1973-present)",
+    "outfield_points": [
+      {
+        "angle": -40,
+        "distance": 330
+      },
+      {
+        "angle": -22,
+        "distance": 385
+      },
+      {
+        "angle": 0,
+        "distance": 410
+      },
+      {
+        "angle": 22,
+        "distance": 385
+      },
+      {
+        "angle": 40,
+        "distance": 330
+      }
+    ]
+  },
+  "LAA": {
+    "venue": "Angel Stadium",
+    "source_url": "https://en.wikipedia.org/wiki/Angel_Stadium",
+    "field_size_text": "Left Field \u2013 347 ft (105.8 m) Left-Center \u2013 390 ft (118.9 m) Center Field \u2013 396 ft (120.7 m) Right-Center \u2013 370 ft (112.8 m) Right-Center (shallow) \u2013 365 ft (111.3 m) Right Field \u2013 350 ft (106.7 m) Backstop \u2013 60.5 ft (18.4 m)",
+    "outfield_points": [
+      {
+        "angle": -40,
+        "distance": 347
+      },
+      {
+        "angle": -22,
+        "distance": 390
+      },
+      {
+        "angle": 0,
+        "distance": 396
+      },
+      {
+        "angle": 22,
+        "distance": 370
+      },
+      {
+        "angle": 30,
+        "distance": 365
+      },
+      {
+        "angle": 40,
+        "distance": 350
+      }
+    ]
+  },
+  "LAD": {
+    "venue": "Dodger Stadium",
+    "source_url": "https://en.wikipedia.org/wiki/Dodger_Stadium",
+    "field_size_text": "Left field \u2013 330 ft (101 m) Medium left-center \u2013 360 ft (110 m) True left-center \u2013 375 ft (114 m) Center field \u2013 395 ft (120 m) True center field \u2013 400 ft (122 m) True right-center \u2013 375 ft (114 m) Medium right-center \u2013 360 ft (110 m) Right field \u2013 330 ft (101 m) Backstop \u2013 55 ft (17 m)",
+    "outfield_points": [
+      {
+        "angle": -40,
+        "distance": 330
+      },
+      {
+        "angle": -30,
+        "distance": 360
+      },
+      {
+        "angle": -22,
+        "distance": 375
+      },
+      {
+        "angle": 0,
+        "distance": 400
+      },
+      {
+        "angle": 22,
+        "distance": 375
+      },
+      {
+        "angle": 30,
+        "distance": 360
+      },
+      {
+        "angle": 40,
+        "distance": 330
+      }
+    ]
+  },
+  "MIA": {
+    "venue": "loanDepot park",
+    "source_url": "https://en.wikipedia.org/wiki/LoanDepot_park",
+    "field_size_text": "Left field line \u2013 344 ft (105 m) Left-center power alley \u2013 386 ft (118 m) Center field \u2013 400 ft (120 m) Right-center power alley \u2013 387 ft (118 m) Right field line \u2013 335 ft (102 m) Backstop: \u2013 47 ft (14.3 m)",
+    "outfield_points": [
+      {
+        "angle": -45,
+        "distance": 344
+      },
+      {
+        "angle": -22,
+        "distance": 386
+      },
+      {
+        "angle": 0,
+        "distance": 400
+      },
+      {
+        "angle": 22,
+        "distance": 387
+      },
+      {
+        "angle": 45,
+        "distance": 335
+      }
+    ]
+  },
+  "MIL": {
+    "venue": "American Family Field",
+    "source_url": "https://en.wikipedia.org/wiki/American_Family_Field",
+    "field_size_text": "Left Field \u2013 342 feet (104 m) (2021 posted 342, original 344 feet) Left-Center \u2013 371 feet (113 m) (Not Posted) Center Field \u2013 400 feet (122 m) Right-Center \u2013 374 feet (114 m) (Not Posted) Right Field \u2013 337 feet (103 m) (345 posted) Backstop \u2013 56 feet (17 m)",
+    "outfield_points": [
+      {
+        "angle": -40,
+        "distance": 342
+      },
+      {
+        "angle": -22,
+        "distance": 371
+      },
+      {
+        "angle": 0,
+        "distance": 400
+      },
+      {
+        "angle": 22,
+        "distance": 374
+      },
+      {
+        "angle": 40,
+        "distance": 337
+      }
+    ]
+  },
+  "MIN": {
+    "venue": "Target Field",
+    "source_url": "https://en.wikipedia.org/wiki/Target_Field",
+    "field_size_text": "Left Field \u2013 339 feet (103 m) Left-Center \u2013 377 feet (115 m) Center Field left corner \u2013 411 feet (125 m) Center Field right corner \u2013 403 feet (123 m) Right-Center \u2013 367 feet (112 m) Right Field \u2013 328 feet (100 m)",
+    "outfield_points": [
+      {
+        "angle": -40,
+        "distance": 339
+      },
+      {
+        "angle": -22,
+        "distance": 377
+      },
+      {
+        "angle": -12,
+        "distance": 411
+      },
+      {
+        "angle": 0,
+        "distance": 407
+      },
+      {
+        "angle": 12,
+        "distance": 403
+      },
+      {
+        "angle": 22,
+        "distance": 367
+      },
+      {
+        "angle": 40,
+        "distance": 328
+      }
+    ]
+  },
+  "NYM": {
+    "venue": "Citi Field",
+    "source_url": "https://en.wikipedia.org/wiki/Citi_Field",
+    "field_size_text": "Left field line - 335 feet (102 m) Left center - 358 feet (109 m) Deep left center - 385 feet (117 m) Center field - 408 feet (124 m) Deep right center - 398 feet (121 m) Right center - 375 feet (114 m) Right field line - 330 feet (101 m)",
+    "outfield_points": [
+      {
+        "angle": -45,
+        "distance": 335
+      },
+      {
+        "angle": -22,
+        "distance": 358
+      },
+      {
+        "angle": -12,
+        "distance": 385
+      },
+      {
+        "angle": 0,
+        "distance": 408
+      },
+      {
+        "angle": 12,
+        "distance": 398
+      },
+      {
+        "angle": 22,
+        "distance": 375
+      },
+      {
+        "angle": 45,
+        "distance": 330
+      }
+    ]
+  },
+  "NYY": {
+    "venue": "Yankee Stadium",
+    "source_url": "https://en.wikipedia.org/wiki/Yankee_Stadium",
+    "field_size_text": "List Baseball : Left field \u2013 318 ft (97 m) Left center \u2013 399 ft (122 m) Center field \u2013 408 ft (124 m) Right center \u2013 385 ft (117 m) Right field \u2013 314 ft (96 m) Backstop \u2013 52 ft 4 in (15.95 m) Soccer : 110 yd (100 m) x 70 yd (64 m)",
+    "outfield_points": [
+      {
+        "angle": -40,
+        "distance": 318
+      },
+      {
+        "angle": -22,
+        "distance": 399
+      },
+      {
+        "angle": 0,
+        "distance": 408
+      },
+      {
+        "angle": 22,
+        "distance": 385
+      },
+      {
+        "angle": 40,
+        "distance": 314
+      }
+    ]
+  },
+  "ATH": {
+    "venue": "Sutter Health Park",
+    "source_url": "https://en.wikipedia.org/wiki/Sutter_Health_Park",
+    "field_size_text": "Left: 330 ft (100 m) Center: 403 ft (123 m) Right: 325 ft (99 m) Backstop: 58 ft (18 m)",
+    "outfield_points": [
+      {
+        "angle": -40,
+        "distance": 330
+      },
+      {
+        "angle": 0,
+        "distance": 403
+      },
+      {
+        "angle": 40,
+        "distance": 325
+      }
+    ]
+  },
+  "PHI": {
+    "venue": "Citizens Bank Park",
+    "source_url": "https://en.wikipedia.org/wiki/Citizens_Bank_Park",
+    "field_size_text": "Left field foul pole 329 feet (100 m) Left field power alley 374 feet (114 m) Monty's Angle (left of CF to LCF) 409 feet (125 m) \u2013 381 feet (116 m) \u2013 387 feet (118 m) Center field, straightaway 401 feet (122 m) Right field power alley 369 feet (112 m) Right field foul pole 330 feet (101 m)",
+    "outfield_points": [
+      {
+        "angle": -45,
+        "distance": 329
+      },
+      {
+        "angle": -22,
+        "distance": 374
+      },
+      {
+        "angle": -12,
+        "distance": 409
+      },
+      {
+        "angle": 0,
+        "distance": 401
+      },
+      {
+        "angle": 12,
+        "distance": 387
+      },
+      {
+        "angle": 22,
+        "distance": 369
+      },
+      {
+        "angle": 45,
+        "distance": 330
+      }
+    ]
+  },
+  "PIT": {
+    "venue": "PNC Park",
+    "source_url": "https://en.wikipedia.org/wiki/PNC_Park",
+    "field_size_text": "Left Field \u2013 325 feet (99 m) Left-Center \u2013 383 feet (117 m) Deep Left-Center Field \u2013 410 feet (125 m) Center Field \u2013 399 feet (122 m) Right-Center \u2013 375 feet (114 m) Right Field \u2013 320 feet (98 m) Backstop \u2013 51 feet (16 m)",
+    "outfield_points": [
+      {
+        "angle": -40,
+        "distance": 325
+      },
+      {
+        "angle": -22,
+        "distance": 383
+      },
+      {
+        "angle": -12,
+        "distance": 410
+      },
+      {
+        "angle": 0,
+        "distance": 399
+      },
+      {
+        "angle": 22,
+        "distance": 375
+      },
+      {
+        "angle": 40,
+        "distance": 320
+      }
+    ]
+  },
+  "SD": {
+    "venue": "Petco Park",
+    "source_url": "https://en.wikipedia.org/wiki/Petco_Park",
+    "field_size_text": "Left field Line \u2013 336 feet (102 m) Left field \u2013 343 feet (105 m) Left field alley \u2013 386 feet (118 m) Center field \u2013 396 feet (121 m) Right field alley \u2013 391 feet (119 m) Right field \u2013 382 feet (116 m) Right field line \u2013 331 feet (101 m)",
+    "outfield_points": [
+      {
+        "angle": -45,
+        "distance": 336
+      },
+      {
+        "angle": -40,
+        "distance": 343
+      },
+      {
+        "angle": -30,
+        "distance": 386
+      },
+      {
+        "angle": 0,
+        "distance": 396
+      },
+      {
+        "angle": 30,
+        "distance": 391
+      },
+      {
+        "angle": 40,
+        "distance": 382
+      },
+      {
+        "angle": 45,
+        "distance": 331
+      }
+    ]
+  },
+  "SF": {
+    "venue": "Oracle Park",
+    "source_url": "https://en.wikipedia.org/wiki/Oracle_Park",
+    "field_size_text": "Left field line \u2013 339 feet (103 m) Left field \u2013 354 feet (108 m) Left-center field \u2013 399 feet (122 m) Center field \u2013 391 feet (119 m) Right-center field \u2013 415 feet (126 m) Right field \u2013 365 feet (111 m) Right field line \u2013 309 feet (94 m) Backstop \u2013 48 feet (15 m) Fence height Left Field \u2013 8 feet (2 m) Center Field \u2013 7 feet (2 m) Dead Center Field \u2013 10 feet (3 m) Right-Center Field \u2013 20 feet (6 m) Right Field \u2013 24 feet (7 m)",
+    "outfield_points": [
+      {
+        "angle": -45,
+        "distance": 339
+      },
+      {
+        "angle": -40,
+        "distance": 354
+      },
+      {
+        "angle": 0,
+        "distance": 415
+      },
+      {
+        "angle": 40,
+        "distance": 365
+      },
+      {
+        "angle": 45,
+        "distance": 309
+      }
+    ]
+  },
+  "SEA": {
+    "venue": "T-Mobile Park",
+    "source_url": "https://en.wikipedia.org/wiki/T-Mobile_Park",
+    "field_size_text": "Left Field \u2013 331 ft (101 m) Left-Center \u2013 378 ft (115 m) Center Field \u2013 401 ft (122 m) Right-Center \u2013 381 ft (116 m) Right Field \u2013 326 ft (99 m) Backstop \u2013 69 ft (21 m)",
+    "outfield_points": [
+      {
+        "angle": -40,
+        "distance": 331
+      },
+      {
+        "angle": -22,
+        "distance": 378
+      },
+      {
+        "angle": 0,
+        "distance": 401
+      },
+      {
+        "angle": 22,
+        "distance": 381
+      },
+      {
+        "angle": 40,
+        "distance": 326
+      }
+    ]
+  },
+  "STL": {
+    "venue": "Busch Stadium",
+    "source_url": "https://en.wikipedia.org/wiki/Busch_Stadium",
+    "field_size_text": "Left field \u2014 336 feet (102 m) Left center field \u2014 375 feet (114 m) Center field \u2014 400 feet (122 m) Right center field \u2014 375 feet (114 m) Right field \u2014 335 feet (102 m)",
+    "outfield_points": [
+      {
+        "angle": -40,
+        "distance": 336
+      },
+      {
+        "angle": -22,
+        "distance": 375
+      },
+      {
+        "angle": 0,
+        "distance": 400
+      },
+      {
+        "angle": 22,
+        "distance": 375
+      },
+      {
+        "angle": 40,
+        "distance": 335
+      }
+    ]
+  },
+  "TB": {
+    "venue": "George M. Steinbrenner Field",
+    "source_url": "https://en.wikipedia.org/wiki/George_M._Steinbrenner_Field",
+    "field_size_text": "Left Field \u2013 318 ft (97 m) Left-Center \u2013 399 ft (122 m) Center Field \u2013 408 ft (124 m) Right-Center \u2013 385 ft (117 m) Right Field \u2013 314 ft (96 m)",
+    "outfield_points": [
+      {
+        "angle": -40,
+        "distance": 318
+      },
+      {
+        "angle": -22,
+        "distance": 399
+      },
+      {
+        "angle": 0,
+        "distance": 408
+      },
+      {
+        "angle": 22,
+        "distance": 385
+      },
+      {
+        "angle": 40,
+        "distance": 314
+      }
+    ]
+  },
+  "TEX": {
+    "venue": "Globe Life Field",
+    "source_url": "https://en.wikipedia.org/wiki/Globe_Life_Field",
+    "field_size_text": "Baseball : Left field : 329 ft (100 m) Left center : 372 ft (113 m) Center field : 407 ft (124 m) Right center : 374 ft (114 m) Right field : 326 ft (99 m) Backstop : 42 ft (13 m)",
+    "outfield_points": [
+      {
+        "angle": -40,
+        "distance": 329
+      },
+      {
+        "angle": -22,
+        "distance": 372
+      },
+      {
+        "angle": 0,
+        "distance": 407
+      },
+      {
+        "angle": 22,
+        "distance": 374
+      },
+      {
+        "angle": 40,
+        "distance": 326
+      }
+    ]
+  },
+  "TOR": {
+    "venue": "Rogers Centre",
+    "source_url": "https://en.wikipedia.org/wiki/Rogers_Centre",
+    "field_size_text": "Left field line \u2013 328 ft (100 m) Left-centre \u2013 368 ft (112 m) Left-centre power alley \u2013 381 ft (116 m) Centre field \u2013 400 ft (120 m) Right-centre power alley \u2013 372 ft (113 m) Right-centre \u2013 359 ft (109 m) Right field line \u2013 328 ft (100 m) Backstop \u2013 60 ft (18 m)",
+    "outfield_points": [
+      {
+        "angle": -45,
+        "distance": 328
+      },
+      {
+        "angle": -22,
+        "distance": 368
+      },
+      {
+        "angle": -12,
+        "distance": 381
+      },
+      {
+        "angle": 0,
+        "distance": 400
+      },
+      {
+        "angle": 12,
+        "distance": 372
+      },
+      {
+        "angle": 22,
+        "distance": 359
+      },
+      {
+        "angle": 45,
+        "distance": 328
+      }
+    ]
+  },
+  "WSH": {
+    "venue": "Nationals Park",
+    "source_url": "https://en.wikipedia.org/wiki/Nationals_Park",
+    "field_size_text": "Left Field - 337 feet (103 m) Left-Center - 377 feet (115 m) Center Field - 402 feet (123 m) Right-Center - 370 feet (113 m) Right Field - 335 feet (102 m)",
+    "outfield_points": [
+      {
+        "angle": -40,
+        "distance": 337
+      },
+      {
+        "angle": -22,
+        "distance": 377
+      },
+      {
+        "angle": 0,
+        "distance": 402
+      },
+      {
+        "angle": 22,
+        "distance": 370
+      },
+      {
+        "angle": 40,
+        "distance": 335
+      }
+    ]
+  }
+}

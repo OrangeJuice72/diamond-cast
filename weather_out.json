@@ -1,0 +1,277 @@
+{
+  "eid": 4783026,
+  "des": "Arizona@Philadelphia",
+  "lid": 3,
+  "tvs": "NBCS-PH,",
+  "dt": 1776015300000,
+  "es": "scheduled",
+  "spid": 3,
+  "ic": false,
+  "zcode": null,
+  "att": null,
+  "st": "Grass",
+  "rft": "outdoor",
+  "fo": "NE",
+  "cit": "Philadelphia",
+  "sta": "PA",
+  "ven": "Citizens Bank Park",
+  "slg": "arizona-diamondbacks-vs-philadelphia-phillies",
+  "seid": 80686,
+  "cou": "USA",
+  "cov": "schedule",
+  "tl": null,
+  "writeingame": false,
+  "sequence": 47729502,
+  "eventGroup": {
+    "egid": 56,
+    "nam": "REG",
+    "parentid": 0,
+    "parentname": null
+  },
+  "participants": [
+    {
+      "eid": 4783026,
+      "partid": 633,
+      "tr": null,
+      "rot": 951,
+      "ih": false,
+      "sppil": "right",
+      "partbeid": 8837243,
+      "isFavorite": false,
+      "startingPitcher": {
+        "fn": "Zac",
+        "pid": 404176,
+        "lnam": "Gallen"
+      },
+      "source": {
+        "tmid": 633,
+        "lid": 3,
+        "tmblid": 379656,
+        "imageurl": "https://logos.oddstrader.com/logos-original/c02be4cf-85f4-4c8b-9d06-5683a10e70a8-original.png",
+        "nam": "Arizona",
+        "nn": "Diamondbacks",
+        "sn": "Arizona",
+        "abbr": "AZ",
+        "cit": "Arizona",
+        "senam": "2026",
+        "iv": null,
+        "slg": "arizona-diamondbacks",
+        "statisticsByGroups": [
+          {
+            "ent": "teambyleague",
+            "grp": "wlp-result-pre",
+            "stat": "lose",
+            "val": "13",
+            "idty": "0",
+            "entrid": 379656
+          },
+          {
+            "ent": "teambyleague",
+            "grp": "wlp-result-pst",
+            "stat": "lose",
+            "val": "0",
+            "idty": "0",
+            "entrid": 379656
+          },
+          {
+            "ent": "teambyleague",
+            "grp": "wlp-result-reg",
+            "stat": "lose",
+            "val": "7",
+            "idty": "0",
+            "entrid": 379656
+          },
+          {
+            "ent": "teambyleague",
+            "grp": "wlp-result-pre",
+            "stat": "push",
+            "val": "1",
+            "idty": "0",
+            "entrid": 379656
+          },
+          {
+            "ent": "teambyleague",
+            "grp": "wlp-result-pst",
+            "stat": "push",
+            "val": "0",
+            "idty": "0",
+            "entrid": 379656
+          },
+          {
+            "ent": "teambyleague",
+            "grp": "wlp-result-reg",
+            "stat": "push",
+            "val": "0",
+            "idty": "0",
+            "entrid": 379656
+          },
+          {
+            "ent": "teambyleague",
+            "grp": "wlp-result-pre",
+            "stat": "win",
+            "val": "15",
+            "idty": "0",
+            "entrid": 379656
+          },
+          {
+            "ent": "teambyleague",
+            "grp": "wlp-result-pst",
+            "stat": "win",
+            "val": "0",
+            "idty": "0",
+            "entrid": 379656
+          },
+          {
+            "ent": "teambyleague",
+            "grp": "wlp-result-reg",
+            "stat": "win",
+            "val": "8",
+            "idty": "0",
+            "entrid": 379656
+          }
+        ],
+        "socialNetworks": [
+          {
+            "account": "@ArizonaBaseball",
+            "network": "twitter"
+          }
+        ]
+      }
+    },
+    {
+      "eid": 4783026,
+      "partid": 621,
+      "tr": null,
+      "rot": 952,
+      "ih": true,
+      "sppil": "right",
+      "partbeid": 8837242,
+      "isFavorite": true,
+      "startingPitcher": {
+        "fn": "Andrew",
+        "pid": 671709,
+        "lnam": "Painter"
+      },
+      "source": {
+        "tmid": 621,
+        "lid": 3,
+        "tmblid": 379644,
+        "imageurl": "https://logos.oddstrader.com/logos-original/57be4637-e6c7-49c2-aaf8-edbc7dfe0409-original.PNG",
+        "nam": "Philadelphia",
+        "nn": "Phillies",
+        "sn": "Philadelphia",
+        "abbr": "PHI",
+        "cit": "Philadelphia",
+        "senam": "2026",
+        "iv": null,
+        "slg": "philadelphia-phillies",
+        "statisticsByGroups": [
+          {
+            "ent": "teambyleague",
+            "grp": "wlp-result-pre",
+            "stat": "lose",
+            "val": "17",
+            "idty": "0",
+            "entrid": 379644
+          },
+          {
+            "ent": "teambyleague",
+            "grp": "wlp-result-pst",
+            "stat": "lose",
+            "val": "0",
+            "idty": "0",
+            "entrid": 379644
+          },
+          {
+            "ent": "teambyleague",
+            "grp": "wlp-result-reg",
+            "stat": "lose",
+            "val": "7",
+            "idty": "0",
+            "entrid": 379644
+          },
+          {
+            "ent": "teambyleague",
+            "grp": "wlp-result-pre",
+            "stat": "push",
+            "val": "2",
+            "idty": "0",
+            "entrid": 379644
+          },
+          {
+            "ent": "teambyleague",
+            "grp": "wlp-result-pst",
+            "stat": "push",
+            "val": "0",
+            "idty": "0",
+            "entrid": 379644
+          },
+          {
+            "ent": "teambyleague",
+            "grp": "wlp-result-reg",
+            "stat": "push",
+            "val": "0",
+            "idty": "0",
+            "entrid": 379644
+          },
+          {
+            "ent": "teambyleague",
+            "grp": "wlp-result-pre",
+            "stat": "win",
+            "val": "10",
+            "idty": "0",
+            "entrid": 379644
+          },
+          {
+            "ent": "teambyleague",
+            "grp": "wlp-result-pst",
+            "stat": "win",
+            "val": "0",
+            "idty": "0",
+            "entrid": 379644
+          },
+          {
+            "ent": "teambyleague",
+            "grp": "wlp-result-reg",
+            "stat": "win",
+            "val": "7",
+            "idty": "0",
+            "entrid": 379644
+          }
+        ],
+        "socialNetworks": [
+          {
+            "account": "@Phillies",
+            "network": "twitter"
+          }
+        ]
+      }
+    }
+  ],
+  "scores": [],
+  "statisticsByGroups": [],
+  "marketTypes": [
+    {
+      "mtid": 83,
+      "spid": 3,
+      "nam": "2way (Including OT)",
+      "des": "1,2",
+      "settings": {
+        "layout": "PARTICIPANTS",
+        "format": "DEFAULT"
+      }
+    },
+    {
+      "mtid": 402,
+      "spid": 3,
+      "nam": "American Total (Including OT)",
+      "des": "under,over",
+      "settings": {
+        "layout": "PARTICIPANTS",
+        "format": "TOTALS"
+      }
+    }
+  ],
+  "lat": 39.9059929,
+  "lon": -75.1666401
+}

@@ -1,0 +1,621 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>DiamondCast Projector</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root{
+      --bg:#0b1020; --panel:#121a31; --panel2:#1b2647; --text:#ebf1ff; --muted:#a6b0cf;
+      --accent:#7c3aed; --accent2:#22c55e; --stroke:rgba(255,255,255,.08); --warm:#f97316;
+      --shadow: 0 20px 40px rgba(0,0,0,.35);
+      --radius:22px;
+    }
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent} body{margin:0;overflow-x:hidden;background:
+      radial-gradient(circle at top,#18254f 0,#0f1736 32%,#0a1024 68%,#070b16 100%);
+      background-color:#070b16;background-repeat:no-repeat;background-attachment:fixed;color:var(--text);font-family:Inter,system-ui,Arial,sans-serif}
+    .app{max-width:1500px;margin:0 auto;padding:24px}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand-badge{width:58px;height:58px;border-radius:18px;background:linear-gradient(135deg,#7c3aed,#22c55e);display:grid;place-items:center;box-shadow:var(--shadow);font-size:24px;font-weight:800}
+    h1{margin:0;font-size:28px;letter-spacing:.2px}
+    .sub{color:var(--muted);font-size:14px;margin-top:4px}
+    .toolbar{display:flex;gap:12px;align-items:center;background:rgba(255,255,255,.04);padding:14px 16px;border:1px solid var(--stroke);border-radius:18px}
+    input, select, button{border:none;border-radius:14px;padding:12px 14px;font:inherit}
+    input, select{background:#0d1530;color:var(--text);border:1px solid var(--stroke)}
+    button{background:linear-gradient(135deg,#8b5cf6,#06b6d4);color:#fff;font-weight:700;cursor:pointer}
+    .layout{display:grid;grid-template-columns:360px 1fr;gap:20px}
+    .side-column{display:grid;gap:20px;grid-template-rows:auto 1fr}
+    .panel{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid var(--stroke);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .games-panel{padding:16px;max-height:calc(100vh - 330px);overflow:auto}
+    .side-park{padding:14px}
+    .games-panel h2,.main-panel h2{font-size:16px;color:#cbd5ff;font-weight:700;letter-spacing:.3px;margin:0 0 14px}
+    .game-card{display:grid;gap:10px;padding:14px;border:1px solid var(--stroke);background:rgba(8,15,34,.8);border-radius:18px;margin-bottom:12px;cursor:pointer;transition:.18s transform ease,.18s border-color ease}
+    .game-card:hover{transform:translateY(-1px);border-color:rgba(139,92,246,.45)}
+    .game-card.active{border-color:#8b5cf6;background:linear-gradient(180deg,rgba(124,58,237,.18),rgba(8,15,34,.85))}
+    .row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .team{display:flex;align-items:center;gap:10px;font-weight:700}
+    .logo{width:32px;height:32px;object-fit:contain;filter:drop-shadow(0 6px 10px rgba(0,0,0,.28))}
+    .muted{color:var(--muted);font-size:12px}
+    .main-panel{padding:18px;min-height:720px;display:flex;flex-direction:column}
+    #detail{width:100%;flex:1;display:flex;flex-direction:column}
+    .hero{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;align-items:start}
+    .scoreboard{padding:0;width:100%}
+    .projection-shell{display:grid;gap:16px;flex:1;grid-template-rows:auto 1fr}
+    .teams-line{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px}
+    .hero-team{text-align:center}
+    .hero-team img{width:74px;height:74px;object-fit:contain;filter:drop-shadow(0 10px 18px rgba(0,0,0,.3))}
+    .projection-shell{display:grid;gap:16px;flex:1;grid-template-rows:auto 1fr}
+    .teams-line{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px}
+    .hero-team{text-align:center}
+    .hero-team img{width:74px;height:74px;object-fit:contain;filter:drop-shadow(0 10px 18px rgba(0,0,0,.3))}
+    .hero-team .name{font-size:18px;font-weight:800;margin-top:8px}
+    .score{font-size:62px;font-weight:900;letter-spacing:1px}
+    .at{font-size:14px;color:var(--muted);text-align:center}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .chip{padding:10px 12px;border-radius:999px;background:#0f1732;border:1px solid var(--stroke);font-size:13px;display:inline-flex;align-items:center;gap:8px}
+    .impact{display:inline-grid;place-items:center;min-width:18px;height:18px;padding:0 5px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.02em}
+    .impact-low{background:rgba(148,163,184,.15);color:#cbd5e1;border:1px solid rgba(148,163,184,.28)}
+    .impact-mid{background:rgba(251,191,36,.16);color:#fde68a;border:1px solid rgba(251,191,36,.32)}
+    .impact-high{background:rgba(249,115,22,.16);color:#fdba74;border:1px solid rgba(249,115,22,.34)}
+    .impact-ideal { background: rgba(34,197,94,.16); color: #86efac; border: 1px solid rgba(34,197,94,.34) }
+    .impact-normal { background: rgba(148,163,184,.15); color: #cbd5e1; border: 1px solid rgba(148,163,184,.28) }
+    .impact-poor { background: rgba(244,63,94,.16); color: #fda4af; border: 1px solid rgba(244,63,94,.34) }
+    .impact-very-poor { background: rgba(220,38,38,.28); color: #fca5a5; border: 1px solid rgba(220,38,38,.45) }
+    .weather-panel{padding:18px;border-radius:20px;background:linear-gradient(180deg,rgba(14,165,233,.13),rgba(255,255,255,.02));border:1px solid var(--stroke);display:grid;gap:16px}
+    .weather-svg{width:100%;aspect-ratio:1.1/0.8;border-radius:18px;display:block;background:linear-gradient(180deg,#102041,#0a1327)}
+    .weather-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .weather-stat{padding:12px 14px;border-radius:16px;background:#0f1732;border:1px solid var(--stroke)}
+    .weather-stat .label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+    .weather-stat .value{margin-top:6px;font-size:18px;font-weight:800;line-height:1.2}
+    .weather-stat .detail{margin-top:4px;font-size:12px;color:var(--muted);line-height:1.35}
+    .hourly-list{display:grid;gap:8px}
+    .hourly-row{display:grid;grid-template-columns:64px 1fr auto;gap:10px;align-items:center;padding:10px 12px;border-radius:14px;background:#0f1732;border:1px solid var(--stroke)}
+    .hourly-time{font-weight:700;color:#dbeafe}
+    .hourly-detail{font-size:12px;color:var(--muted)}
+    .hourly-value{font-size:12px;color:#e5edff;text-align:right}
+    .columns{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+    .box{padding:16px;border:1px solid var(--stroke);border-radius:20px;background:rgba(255,255,255,.03);overflow:hidden;display:flex;flex-direction:column;gap:12px;width:100%;max-width:100%}
+    .box h3{margin:0;font-size:15px}
+    .table-wrap{overflow:auto;margin-top:0;border-radius:16px;max-width:100%}
+    table{width:100%;border-collapse:collapse;min-width:760px}
+    th,td{padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.06);text-align:left;font-size:13px;white-space:nowrap;vertical-align:top}
+    th{color:#b7c1e0;font-weight:700}
+    .sticky-col{position:sticky;left:0;z-index:2;background:linear-gradient(90deg,rgba(31,41,71,.98),rgba(31,41,71,.96) 84%,rgba(31,41,71,.72));box-shadow:10px 0 18px rgba(5,10,24,.18)}
+    thead .sticky-col{z-index:3;background:linear-gradient(90deg,rgba(22,30,55,.99),rgba(22,30,55,.96) 84%,rgba(22,30,55,.78))}
+    .name-cell{min-width:280px}
+    .pitcher-card{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px;border-radius:16px;background:#0d1530}
+    .pitcher-card img{width:44px;height:44px;border-radius:14px}
+    .pitcher-card > div{min-width:0}
+    .loading,.empty{display:grid;place-items:center;height:420px;color:var(--muted);font-size:16px}
+    .tiny{font-size:11px;color:var(--muted)}
+    .trend{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:999px;font-size:11px;font-weight:800;margin-right:6px}
+    .trend-hot{background:rgba(249,115,22,.18);color:#fdba74;border:1px solid rgba(249,115,22,.35)}
+    .trend-cold{background:rgba(56,189,248,.16);color:#93c5fd;border:1px solid rgba(56,189,248,.35)}
+    .trend-neutral{background:rgba(148,163,184,.14);color:#cbd5e1;border:1px solid rgba(148,163,184,.3)}
+    .meta-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:14px}
+    .meta-card{padding:12px 14px;border-radius:16px;background:#0f1732;border:1px solid var(--stroke)}
+    .meta-card .label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+    .meta-card .value{margin-top:6px;font-size:18px;font-weight:800}
+    .meta-card .detail{margin-top:4px;font-size:12px;color:var(--muted)}
+    .stats-panel{min-width:0;width:100%}
+    .tabs{display:flex;gap:10px;flex-wrap:wrap}
+    .tab-btn{border:1px solid var(--stroke);background:#0f1732;color:var(--text);padding:10px 14px;border-radius:999px;font-weight:700;cursor:pointer}
+    .tab-btn.active{background:linear-gradient(135deg,rgba(124,58,237,.28),rgba(6,182,212,.22));border-color:rgba(139,92,246,.55)}
+    .tab-panel[hidden]{display:none}
+    /* ── Tablet (≤1100px) ─────────────────────────── */
+    @media (max-width:1100px){
+      .layout{grid-template-columns:1fr}
+      .side-column{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+      .games-panel{max-height:280px}
+      .hero{grid-template-columns:1fr}
+      .columns{grid-template-columns:1fr}
+      .meta-grid{grid-template-columns:repeat(2,1fr)}
+      .weather-grid{grid-template-columns:repeat(2,1fr)}
+      .pitcher-card{grid-template-columns:auto 1fr}
+    }
+
+    /* ── Mobile (≤680px) ───────────────────────────── */
+    @media (max-width:680px){
+      .app{padding:10px}
+      .topbar{flex-direction:column;align-items:stretch;gap:10px}
+      .brand{justify-content:center}
+      .brand-badge{width:42px;height:42px;border-radius:12px;font-size:18px}
+      h1{font-size:20px;text-align:center}
+      .sub{text-align:center;font-size:12px}
+      .toolbar{justify-content:center;padding:10px 12px;gap:8px}
+      .toolbar input,.toolbar button{padding:10px 12px;font-size:14px}
+
+      .layout{grid-template-columns:1fr;gap:12px}
+      .side-column{grid-template-columns:1fr;grid-template-rows:auto auto}
+      .games-panel{max-height:220px;padding:12px}
+      .games-panel h2{font-size:14px;margin-bottom:10px}
+      .game-card{padding:10px;border-radius:14px;margin-bottom:8px}
+      .logo{width:26px;height:26px}
+      .side-park{padding:10px}
+
+      .main-panel{padding:12px;min-height:auto}
+      .score{font-size:36px;letter-spacing:0}
+      .at{font-size:11px}
+      .teams-line{grid-template-columns:1fr auto 1fr;gap:6px}
+      .hero-team img{width:48px;height:48px}
+      .hero-team .name{font-size:14px;margin-top:4px}
+      .hero-team .tiny{font-size:10px}
+
+      .chips{gap:6px;margin-top:10px}
+      .chip{padding:6px 9px;font-size:11px;gap:5px}
+      .impact{min-width:14px;height:14px;font-size:8px;padding:0 4px}
+
+      .meta-grid{grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+      .meta-card{padding:10px;border-radius:12px}
+      .meta-card .label{font-size:10px}
+      .meta-card .value{font-size:15px;margin-top:4px}
+      .meta-card .detail{font-size:10px;margin-top:3px;word-break:break-word;white-space:normal;line-height:1.3}
+
+      .box{padding:12px;border-radius:16px;gap:10px}
+      .box h3{font-size:13px}
+      .tabs{gap:6px}
+      .tab-btn{padding:8px 12px;font-size:13px}
+
+      .pitcher-card{grid-template-columns:36px minmax(0,1fr);gap:8px;padding:10px;border-radius:12px}
+      .pitcher-card img{width:32px;height:32px;border-radius:10px}
+      .pitcher-card .tiny{font-size:10px}
+      .pitcher-card > div:last-child{grid-column:1/-1;text-align:left;display:flex;gap:12px;flex-wrap:wrap}
+      .pitcher-card > div:last-child > div{font-size:12px}
+
+      .table-wrap{margin:0 -12px;border-radius:0;overflow-x:auto;-webkit-overflow-scrolling:touch}
+      table{min-width:640px;font-size:12px}
+      th,td{padding:8px 6px;font-size:11px}
+      .name-cell{min-width:180px}
+      .sticky-col{background:linear-gradient(90deg,rgba(31,41,71,.99),rgba(31,41,71,.97) 80%,rgba(31,41,71,.7))}
+
+      .weather-panel{padding:12px;border-radius:14px;gap:10px}
+      .weather-svg{aspect-ratio:1.2/0.9}
+      .weather-grid{grid-template-columns:1fr 1fr;gap:8px}
+      .weather-stat{padding:10px;border-radius:12px}
+      .weather-stat .label{font-size:10px}
+      .weather-stat .value{font-size:15px;margin-top:4px}
+      .weather-stat .detail{font-size:10px}
+      .weather-stat[style*="grid-column: span 2"]{grid-column:span 2}
+      .hourly-row{grid-template-columns:50px 1fr;gap:6px;padding:8px 10px;border-radius:10px}
+      .hourly-time{font-size:12px}
+      .hourly-detail{font-size:11px}
+      .hourly-value{grid-column:1/-1;font-size:10px;text-align:left;color:var(--muted)}
+    }
+
+    /* ── Small phones (≤400px) ─────────────────────── */
+    @media (max-width:400px){
+      .app{padding:6px}
+      .score{font-size:28px}
+      .hero-team img{width:38px;height:38px}
+      .hero-team .name{font-size:12px}
+      .meta-grid{grid-template-columns:1fr}
+      .weather-grid{grid-template-columns:1fr}
+      .weather-stat[style*="grid-column: span 2"]{grid-column:span 1}
+      .chips{gap:4px}
+      .chip{padding:5px 7px;font-size:10px}
+      table{min-width:560px}
+      th,td{padding:6px 4px;font-size:10px}
+      .name-cell{min-width:150px}
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-badge">&#9918;</div>
+        <div>
+          <h1>DiamondCast Projector</h1>
+          <div class="sub">Daily MLB score, weather, pitcher, and hitter projections</div>
+        </div>
+      </div>
+      <div class="toolbar">
+        <input type="date" id="datePicker" value="{{ today }}">
+        <button id="loadBtn">Load Games</button>
+      </div>
+    </div>
+
+    <div class="layout">
+      <div class="side-column">
+        <div class="panel games-panel">
+          <h2>Games on selected date</h2>
+          <div id="gamesList"></div>
+        </div>
+        <div class="panel side-park" id="parkPanel">
+          <h2>Weather Report</h2>
+          <div id="parkDetail" class="empty" style="height:300px">Choose a game to load the weather board.</div>
+        </div>
+      </div>
+      <div class="panel main-panel">
+        <div id="detail" class="empty">Pick a date, then choose a game.</div>
+      </div>
+    </div>
+  </div>
+
+<script>
+const gamesList = document.getElementById('gamesList');
+const detail = document.getElementById('detail');
+const parkDetail = document.getElementById('parkDetail');
+const datePicker = document.getElementById('datePicker');
+document.getElementById('loadBtn').addEventListener('click', loadGames);
+
+async function loadGames(){
+  const date = datePicker.value;
+  gamesList.innerHTML = '<div class="loading">Loading games…</div>';
+  detail.innerHTML = '<div class="empty">Select a game from the left panel</div>';
+  parkDetail.innerHTML = '<div class="empty" style="height:300px">Choose a game to load the weather board.</div>';
+  const res = await fetch(`/api/games?date=${date}`);
+  const data = await res.json();
+  const games = data.games || [];
+  if(!games.length){
+    gamesList.innerHTML = '<div class="empty">No MLB games found for that date.</div>';
+    return;
+  }
+  gamesList.innerHTML = games.map((g, idx) => `
+    <div class="game-card ${idx===0?'active':''}" data-id="${g.gamePk}">
+      <div class="row">
+        <div class="team"><img class="logo" src="${g.away.logo}"><span>${g.away.abbr}</span></div>
+        <div class="muted">@</div>
+        <div class="team" style="justify-content:flex-end"><span>${g.home.abbr}</span><img class="logo" src="${g.home.logo}"></div>
+      </div>
+      <div class="row">
+        <div class="muted">${g.awayProbable}</div>
+        <div class="muted">${new Date(g.gameDate).toLocaleTimeString([], {hour:'numeric', minute:'2-digit'})}</div>
+      </div>
+      <div class="row">
+        <div class="muted">${g.homeProbable}</div>
+        <div class="tiny">${g.venue}</div>
+      </div>
+    </div>`).join('');
+  [...document.querySelectorAll('.game-card')].forEach(card => {
+    card.addEventListener('click', () => {
+      document.querySelectorAll('.game-card').forEach(c=>c.classList.remove('active'));
+      card.classList.add('active');
+      loadProjection(card.dataset.id);
+    });
+  });
+  loadProjection(games[0].gamePk);
+}
+
+function weatherEmoji(tempF, precip){
+  if(precip >= 50) return 'Rain';
+  if(tempF >= 88) return 'Hot';
+  if(tempF <= 50) return 'Cold';
+  return 'Mild';
+}
+
+function polarPoint(cx, cy, angleDeg, distance, scale){
+  const rad = angleDeg * Math.PI / 180;
+  return {
+    x: cx + Math.sin(rad) * distance * scale,
+    y: cy - Math.cos(rad) * distance * scale
+  };
+}
+
+function trendGlyph(recentOps, seasonOps){
+  if(!recentOps) return { symbol: '\u25CB', cls: 'trend-neutral', label: 'Neutral' };
+  // Objective recent OPS boundaries
+  if(recentOps >= 0.800) return { symbol: '\u25B2', cls: 'trend-hot', label: 'Hot' };
+  if(recentOps <= 0.650) return { symbol: '\u25BC', cls: 'trend-cold', label: 'Cold' };
+  return { symbol: '\u25CF', cls: 'trend-neutral', label: 'Neutral' };
+}
+
+function pitcherTrendGlyph(recentEra, seasonEra){
+  if(recentEra === undefined || recentEra === null) return { symbol: '\u25CB', cls: 'trend-neutral', label: 'Neutral' };
+  // Objective recent ERA boundaries (Last 4)
+  if(recentEra <= 3.50) return { symbol: '\u25B2', cls: 'trend-hot', label: 'Hot' };
+  if(recentEra >= 5.00) return { symbol: '\u25BC', cls: 'trend-cold', label: 'Cold' };
+  return { symbol: '\u25CF', cls: 'trend-neutral', label: 'Neutral' };
+}
+function isDome(park) {
+  return park && park.roof_type && park.roof_type.includes('Indoor');
+}
+
+function chipImpactBadge(level, label){
+  return `<span class="impact impact-${level}" title="${label}">${label}</span>`;
+}
+
+function windImpact(weather, park){
+  if(isDome(park)) return chipImpactBadge('low', 'DOME');
+  const mph = Number(weather.wind_mph || 0);
+  const directional = Math.max(Math.abs(Number(weather.wind_out_component || 0)), Math.abs(Number(weather.wind_side_component || 0) * 0.65));
+  const strength = mph * directional;
+  const label = weather.wind_field_label || 'LOW';
+  if(strength >= 12) return chipImpactBadge('high', label);
+  if(strength >= 6) return chipImpactBadge('mid', label);
+  return chipImpactBadge('low', 'LOW');
+}
+
+function tempImpact(weather, park){
+  if(isDome(park)) return chipImpactBadge('low', 'DOME');
+  const temp = Number(weather.temperature_f || 0);
+  const delta = Math.abs(temp - 70);
+  if(delta >= 18) return chipImpactBadge('high', temp > 70 ? 'HOT' : 'COLD');
+  if(delta >= 10) return chipImpactBadge('mid', temp > 70 ? 'HOT' : 'COLD');
+  return chipImpactBadge('low', 'MILD');
+}
+
+function rainImpact(weather, park){
+  if(isDome(park)) return chipImpactBadge('low', 'DOME');
+  const precip = Number(weather.precip_probability || 0);
+  if(precip >= 55) return chipImpactBadge('high', 'WET');
+  if(precip >= 30) return chipImpactBadge('mid', 'WET');
+  return chipImpactBadge('low', 'DRY');
+}
+
+function cloudImpact(weather, park){
+  if(isDome(park)) return chipImpactBadge('low', 'DOME');
+  const cloud = Number(weather.cloud_cover || 0);
+  if(cloud >= 85) return chipImpactBadge('mid', 'CLOUD');
+  if(cloud >= 55) return chipImpactBadge('low', 'CLOUD');
+  return chipImpactBadge('low', 'CLEAR');
+}
+
+function getTempScore(weather, playerType) {
+  const temp = Number(weather.temperature_f || 70);
+  if (playerType === 'hitter') {
+    if (temp >= 77) return 1;
+    if (temp <= 45) return -2;
+    if (temp <= 62) return -1;
+  } else {
+    // Pitchers generally prefer colder weather
+    if (temp <= 62) return 1;
+    if (temp >= 85) return -2;
+    if (temp >= 77) return -1;
+  }
+  return 0;
+}
+
+function getWindScore(weather, playerType) {
+  const mph = Number(weather.wind_mph || 0);
+  const outCompRaw = Number(weather.wind_out_component || 0); // + is out, - is in
+  const sideCompRaw = Number(weather.wind_side_component || 0);
+  
+  if (mph < 5) return 0; // Wind is calm, NORMAL impact
+  
+  // Wind blowing out
+  if (outCompRaw >= 0.25) {
+    if (playerType === 'hitter') return 1; // IDEAL
+    return mph >= 10 ? -2 : -1; // Pitcher VERY POOR or POOR
+  }
+  
+  // Wind blowing in
+  if (outCompRaw <= -0.25) {
+    if (playerType === 'pitcher') return 1; // IDEAL
+    return mph >= 10 ? -2 : -1; // Hitter VERY POOR or POOR
+  }
+  
+  // Crosswind
+  if (mph >= 10 && Math.abs(sideCompRaw) >= 0.5) {
+    return -1; // High crosswind is POOR for both
+  }
+  
+  return 0;
+}
+
+function renderImpactBadge(score, park) {
+  if (isDome(park)) return chipImpactBadge('normal', 'NORMAL');
+  if (score >= 1) return chipImpactBadge('ideal', 'IDEAL');
+  if (score <= -2) return chipImpactBadge('very-poor', 'VERY POOR');
+  if (score <= -1) return chipImpactBadge('poor', 'POOR');
+  return chipImpactBadge('normal', 'NORMAL');
+}
+
+function genericParkSVG(weather){
+  const windDeg = Number(weather.wind_relative_deg ?? 180);
+  return `
+  <svg class="weather-svg" viewBox="0 0 540 390" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="weatherSky" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#18315f"/>
+        <stop offset="100%" stop-color="#0a1327"/>
+      </linearGradient>
+      <linearGradient id="weatherGrass" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stop-color="#3dd598"/>
+        <stop offset="100%" stop-color="#18794e"/>
+      </linearGradient>
+    </defs>
+    <rect width="540" height="390" rx="28" fill="url(#weatherSky)"/>
+    <path d="M270 310 L185 225 L270 140 L355 225 Z" fill="#bb6b10"/>
+    <path d="M270 115 L165 220 L195 250 L270 175 L345 250 L375 220 Z" fill="url(#weatherGrass)" stroke="rgba(255,255,255,.36)" stroke-width="4"/>
+    <circle cx="270" cy="205" r="14" fill="#f8fafc"/>
+    <circle cx="210" cy="250" r="11" fill="#f8fafc"/>
+    <circle cx="330" cy="250" r="11" fill="#f8fafc"/>
+    <circle cx="270" cy="310" r="11" fill="#f8fafc"/>
+    <path d="M165 120 Q270 70 375 120" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="10" stroke-linecap="round"/>
+    <g transform="translate(58 54)">
+      <circle cx="42" cy="42" r="36" fill="rgba(124,58,237,.18)" stroke="rgba(167,139,250,.5)"/>
+      <path d="M42 16 L57 42 L42 37 L27 42 Z" fill="#fff" transform="rotate(${windDeg} 42 42)"/>
+      <text x="42" y="92" text-anchor="middle" font-size="13" fill="#d8b4fe" font-family="Arial">${weather.wind_field_label || weather.wind_label}</text>
+    </g>
+    <text x="270" y="360" text-anchor="middle" font-size="15" fill="#dbeafe" font-family="Arial">Generic park view | Wind from ${weather.wind_label}</text>
+  </svg>`;
+}
+
+function weatherPanelHTML(p){
+  const hourly = (p.weather.hourly_forecast || []).map(hour => `
+    <div class="hourly-row">
+      <div class="hourly-time">${hour.label}</div>
+      <div class="hourly-detail">${hour.description}</div>
+      <div class="hourly-value">${hour.temperature_f} F | ${hour.wind_mph} mph ${hour.wind_label} | ${hour.precip_probability}% rain</div>
+    </div>
+  `).join('');
+  return `
+    <div class="weather-panel">
+      ${genericParkSVG(p.weather)}
+      <div class="weather-grid">
+        <div class="weather-stat">
+          <div class="label">Temperature</div>
+          <div class="value">${p.weather.temperature_f} F</div>
+          <div class="detail">${p.weather.weather_description} | Feels like ${p.weather.feels_like_f} F</div>
+        </div>
+        <div class="weather-stat" style="display:flex; flex-direction:column;">
+          <div class="label" style="margin-bottom:8px; display:block">Temp. Impact</div>
+          <div style="font-size:12px; font-weight:700; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center; width:100%">Batters ${renderImpactBadge(getTempScore(p.weather, 'hitter'), p.park)}</div>
+          <div style="font-size:12px; font-weight:700; display:flex; justify-content:space-between; align-items:center; width:100%">Pitchers ${renderImpactBadge(getTempScore(p.weather, 'pitcher'), p.park)}</div>
+        </div>
+        <div class="weather-stat">
+          <div class="label">Wind Direction</div>
+          <div class="value">${p.weather.wind_field_label} | ${p.weather.wind_mph} mph</div>
+          <div class="detail">From ${p.weather.wind_label}</div>
+        </div>
+        <div class="weather-stat" style="display:flex; flex-direction:column;">
+          <div class="label" style="margin-bottom:8px; display:block">Wind Impact</div>
+          <div style="font-size:12px; font-weight:700; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center; width:100%">Batters ${renderImpactBadge(getWindScore(p.weather, 'hitter'), p.park)}</div>
+          <div style="font-size:12px; font-weight:700; display:flex; justify-content:space-between; align-items:center; width:100%">Pitchers ${renderImpactBadge(getWindScore(p.weather, 'pitcher'), p.park)}</div>
+        </div>
+        <div class="weather-stat" style="grid-column: span 2">
+          <div class="label">Hourly Forecast</div>
+          <div class="detail">OddsTrader game-window weather</div>
+        </div>
+      </div>
+      <div class="hourly-list">
+        ${hourly || '<div class="hourly-row"><div class="hourly-time">-</div><div class="hourly-detail">No hourly forecast available</div><div class="hourly-value">-</div></div>'}
+      </div>
+    </div>
+  `;
+}
+
+function hitterTable(hitters){
+  return `
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th class="sticky-col name-cell">Hitter</th><th>PA</th><th>H</th><th>TOB</th><th>HR</th><th>RBI</th><th>R</th><th>L4 OPS</th><th>vs P</th><th>OPS</th></tr></thead>
+    <tbody>
+      ${hitters.map(h=>{
+        const trend = trendGlyph(h.recent_form?.ops, h.ops);
+        return `<tr>
+        <td class="sticky-col name-cell"><span class="trend ${trend.cls}" title="${trend.label}">${trend.symbol}</span>${h.name} <span class="tiny">${h.pos}</span></td>
+        <td>${h.proj_pa}</td><td>${h.proj_hits}</td><td>${h.proj_times_on_base}</td><td>${h.proj_hr}</td><td>${h.proj_rbi}</td><td>${h.proj_runs}</td><td>${h.recent_form?.games ? h.recent_form.ops : "-"}</td><td>${h.vs_pitcher?.pa ? `${h.vs_pitcher.hits}-${h.vs_pitcher.ab} (${h.vs_pitcher.ops})` : "-"}</td><td>${h.ops}</td>
+      </tr>`}).join('')}
+    </tbody>
+  </table>
+  </div>`;
+}
+
+function pitcherCard(team){
+  const p = team.probable_pitcher;
+  const trend = pitcherTrendGlyph(p.recent?.era, p.era);
+  return `
+    <div class="pitcher-card">
+      <img src="${team.logo}">
+      <div>
+        <div style="font-weight:800"><span class="trend ${trend.cls}" title="${trend.label}">${trend.symbol}</span>${p.name}</div>
+        <div class="tiny">ERA ${p.era ?? '-'} | WHIP ${p.whip ?? '-'} | K/9 ${p.k9 ?? '-'}</div>
+        <div class="tiny">Last 4 ERA ${p.recent?.era ?? '-'} | WHIP ${p.recent?.whip ?? '-'} | K/9 ${p.recent?.k9 ?? '-'}</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-weight:800">${p.proj_ip} IP</div>
+        <div class="tiny">${p.proj_k} K | ${p.proj_er} ER</div>
+        <div class="tiny">Lineup OPS ${p.lineup_matchup?.ops_avg ?? '-'}</div>
+      </div>
+    </div>
+  `;
+}
+
+async function loadProjection(gamePk){
+  detail.innerHTML = '<div class="loading">Crunching projection...</div>';
+  const res = await fetch(`/api/projection/${gamePk}?date=${datePicker.value}`);
+  const p = await res.json();
+  if(p.error){
+    detail.innerHTML = `<div class="empty">${p.error}</div>`;
+    return;
+  }
+  parkDetail.innerHTML = weatherPanelHTML(p);
+  detail.innerHTML = `
+    <div class="projection-shell">
+      <div class="hero">
+      <div class="scoreboard">
+        <div class="teams-line">
+          <div class="hero-team">
+            <img src="${p.teams.away.logo}">
+            <div class="name">${p.teams.away.name}</div>
+            <div class="tiny">${p.teams.away.probable_pitcher.name}</div>
+          </div>
+          <div>
+            <div class="score">${p.projected_score.away} - ${p.projected_score.home}</div>
+            <div class="at">Projected total ${p.projected_score.total} | ${new Date(p.gameDate).toLocaleString()}</div>
+          </div>
+          <div class="hero-team">
+            <img src="${p.teams.home.logo}">
+            <div class="name">${p.teams.home.name}</div>
+            <div class="tiny">${p.teams.home.probable_pitcher.name}</div>
+          </div>
+        </div>
+        <div class="chips">
+          <div class="chip">${tempImpact(p.weather, p.park)} Temp ${p.weather.temperature_f} F</div>
+          <div class="chip">${cloudImpact(p.weather, p.park)} Clouds ${p.weather.cloud_cover}%</div>
+          <div class="chip">${windImpact(p.weather, p.park)} Wind ${p.weather.wind_field_label} ${p.weather.wind_mph} mph from ${p.weather.wind_label}</div>
+          <div class="chip">${rainImpact(p.weather, p.park)} Rain ${p.weather.precip_probability}%</div>
+          <div class="chip">Park ${p.venue}</div>
+          <div class="chip">Altitude ${p.park.altitude_ft} ft</div>
+          <div class="chip">Env ${p.environment_factor}</div>
+          <div class="chip">PF Runs ${p.park_factors.runs_formatted}</div>
+          <div class="chip">PF HR ${p.park_factors.hr_formatted}</div>
+          <div class="chip">PF 2B/3B ${p.park_factors.doubles_triples_formatted}</div>
+          <div class="chip">PF 1B ${p.park_factors.singles_formatted}</div>
+        </div>
+        <div class="meta-grid">
+          <div class="meta-card">
+            <div class="label">Away Last 4</div>
+            <div class="value">${p.teams.away.recent_team_form.runs_per_game}</div>
+            <div class="detail">${p.teams.away.recent_team_form.dates.join(' | ')}</div>
+          </div>
+          <div class="meta-card">
+            <div class="label">Home Last 4</div>
+            <div class="value">${p.teams.home.recent_team_form.runs_per_game}</div>
+            <div class="detail">${p.teams.home.recent_team_form.dates.join(' | ')}</div>
+          </div>
+          <div class="meta-card">
+            <div class="label">Park Last 8 Total</div>
+            <div class="value">${p.park_recent_scoring.total_runs_avg}</div>
+            <div class="detail">${p.park_recent_scoring.dates.join(' | ')}</div>
+          </div>
+          <div class="meta-card">
+            <div class="label">Ballpark Pal Board</div>
+            <div class="value">${p.park_factors.runs_formatted}</div>
+            <div class="detail">HR ${p.park_factors.hr_formatted} | 2B/3B ${p.park_factors.doubles_triples_formatted} | 1B ${p.park_factors.singles_formatted}</div>
+          </div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="box stats-panel">
+        <div class="tabs">
+          <button class="tab-btn active" data-team-tab="away">${p.teams.away.abbr} hitters</button>
+          <button class="tab-btn" data-team-tab="home">${p.teams.home.abbr} hitters</button>
+        </div>
+        <div class="tab-panel" data-team-panel="away">
+          <h3>${p.teams.away.abbr} projected hitters</h3>
+          ${pitcherCard(p.teams.away)}
+          ${hitterTable(p.teams.away.hitters)}
+        </div>
+          <div class="tab-panel" data-team-panel="home" hidden>
+            <h3>${p.teams.home.abbr} projected hitters</h3>
+            ${pitcherCard(p.teams.home)}
+            ${hitterTable(p.teams.home.hitters)}
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  `;
+
+  const tabButtons = detail.querySelectorAll('[data-team-tab]');
+  const tabPanels = detail.querySelectorAll('[data-team-panel]');
+  tabButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const key = button.dataset.teamTab;
+      tabButtons.forEach((btn) => btn.classList.toggle('active', btn === button));
+      tabPanels.forEach((panel) => {
+        panel.hidden = panel.dataset.teamPanel !== key;
+      });
+    });
+  });
+}
+
+loadGames();
+</script>
+</body>
+</html>
