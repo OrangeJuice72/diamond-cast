@@ -29,7 +29,8 @@
     .side-column{display:grid;gap:20px;grid-template-rows:auto 1fr}
     .panel{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid var(--stroke);border-radius:var(--radius);box-shadow:var(--shadow)}
     .games-panel{padding:16px;max-height:calc(100vh - 330px);overflow:auto}
-    .side-park{padding:14px}
+    .side-park{padding:14px;overflow:hidden}
+    #parkDetail{width:100%;min-height:875px}
     .games-panel h2,.main-panel h2{font-size:16px;color:#cbd5ff;font-weight:700;letter-spacing:.3px;margin:0 0 14px}
     .game-card{display:grid;gap:10px;padding:14px;border:1px solid var(--stroke);background:rgba(8,15,34,.8);border-radius:18px;margin-bottom:12px;cursor:pointer;transition:.18s transform ease,.18s border-color ease}
     .game-card:hover{transform:translateY(-1px);border-color:rgba(139,92,246,.45)}
@@ -41,9 +42,9 @@
     .main-panel{padding:18px;min-height:720px;display:flex;flex-direction:column}
     #detail{width:100%;flex:1;display:flex;flex-direction:column}
     .hero{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;align-items:start}
-    .scoreboard{padding:0;width:100%}
+    .scoreboard{padding:0;width:100%;display:grid;gap:14px;justify-items:center;text-align:center}
     .projection-shell{display:grid;gap:16px;flex:1;grid-template-rows:auto 1fr}
-    .teams-line{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px}
+    .teams-line{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;width:100%}
     .hero-team{text-align:center}
     .hero-team img{width:74px;height:74px;object-fit:contain;filter:drop-shadow(0 10px 18px rgba(0,0,0,.3))}
     .projection-shell{display:grid;gap:16px;flex:1;grid-template-rows:auto 1fr}
@@ -53,7 +54,8 @@
     .hero-team .name{font-size:18px;font-weight:800;margin-top:8px}
     .score{font-size:62px;font-weight:900;letter-spacing:1px}
     .at{font-size:14px;color:var(--muted);text-align:center}
-    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .projection-summary{display:grid;justify-items:center;gap:4px}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;justify-content:center}
     .chip{padding:10px 12px;border-radius:999px;background:#0f1732;border:1px solid var(--stroke);font-size:13px;display:inline-flex;align-items:center;gap:8px}
     .impact{display:inline-grid;place-items:center;min-width:18px;height:18px;padding:0 5px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.02em}
     .impact-low{background:rgba(148,163,184,.15);color:#cbd5e1;border:1px solid rgba(148,163,184,.28)}
@@ -133,12 +135,13 @@
       .games-panel h2{font-size:14px;margin-bottom:10px}
       .game-card{padding:10px;border-radius:14px;margin-bottom:8px}
       .logo{width:26px;height:26px}
-      .side-park{padding:10px}
+      .side-park{padding:10px;height:auto}
 
       .main-panel{padding:12px;min-height:auto}
       .score{font-size:36px;letter-spacing:0}
       .at{font-size:11px}
       .teams-line{grid-template-columns:1fr auto 1fr;gap:6px}
+      .projection-summary{max-width:100%}
       .hero-team img{width:48px;height:48px}
       .hero-team .name{font-size:14px;margin-top:4px}
       .hero-team .tiny{font-size:10px}
@@ -170,6 +173,7 @@
       .name-cell{min-width:180px}
       .sticky-col{background:linear-gradient(90deg,rgba(31,41,71,.99),rgba(31,41,71,.97) 80%,rgba(31,41,71,.7))}
 
+      #parkDetail{min-height:0}
       .weather-panel{padding:12px;border-radius:14px;gap:10px}
       .weather-svg{aspect-ratio:1.2/0.9}
       .weather-grid{grid-template-columns:1fr 1fr;gap:8px}
@@ -225,7 +229,7 @@
         </div>
         <div class="panel side-park" id="parkPanel">
           <h2>Weather Report</h2>
-          <div id="parkDetail" class="empty" style="height:950px">Choose a game to load the weather board.</div>
+          <div id="parkDetail" class="empty">Choose a game to load the weather board.</div>
         </div>
       </div>
       <div class="panel main-panel">
@@ -245,7 +249,7 @@ async function loadGames(){
   const date = datePicker.value;
   gamesList.innerHTML = '<div class="loading">Loading games…</div>';
   detail.innerHTML = '<div class="empty">Select a game from the left panel</div>';
-  parkDetail.innerHTML = '<div class="empty" style="height:300px">Choose a game to load the weather board.</div>';
+  parkDetail.innerHTML = '<div class="empty">Choose a game to load the weather board.</div>';
   const res = await fetch(`/api/games?date=${date}`);
   const data = await res.json();
   const games = data.games || [];
@@ -534,7 +538,7 @@ async function loadProjection(gamePk){
             <div class="name">${p.teams.away.name}</div>
             <div class="tiny">${p.teams.away.probable_pitcher.name}</div>
           </div>
-          <div>
+          <div class="projection-summary">
             <div class="score">${p.projected_score.away} - ${p.projected_score.home}</div>
             <div class="at">Projected total ${p.projected_score.total} | ${new Date(p.gameDate).toLocaleString()}</div>
           </div>

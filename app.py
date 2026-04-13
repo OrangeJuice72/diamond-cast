@@ -126,7 +126,6 @@ def season_candidates(game_date, max_seasons=2):
 def game_date_only(game_date):
     return str(game_date)[:10]
 
-@lru_cache(maxsize=8192)
 def get_player_stat_splits(person_id, group, stat_type, season=None, opposing_player_id=None):
     params = {"stats": stat_type, "group": group}
     if season:
@@ -224,7 +223,6 @@ def aggregate_vs_player_history(person_id, group, opposing_player_id):
         "era_allowed": round(safe_div(sum(stat_float(s.get("stat", {}).get("earnedRuns", 0)) for s in splits) * 9, ip, 4.20), 2) if ip else None,
     }
 
-@lru_cache(maxsize=1024)
 def get_recent_team_games(team_id, game_date, limit=8):
     cutoff = game_date_only(game_date)
     games = []
@@ -271,7 +269,6 @@ def summarize_recent_team_runs(team_id, game_date, limit=4):
         "dates": [g.get("desc", g["date"]) for g in games],
     }
 
-@lru_cache(maxsize=512)
 def summarize_park_recent_scoring(venue_id, game_date, limit=8):
     cutoff = game_date_only(game_date)
     games = []
