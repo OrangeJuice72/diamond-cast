@@ -29,8 +29,8 @@
     .side-column{display:grid;gap:20px;grid-template-rows:auto 1fr}
     .panel{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid var(--stroke);border-radius:var(--radius);box-shadow:var(--shadow)}
     .games-panel{padding:16px;max-height:calc(100vh - 330px);overflow:auto}
-    .side-park{padding:14px;overflow:hidden}
-    #parkDetail{width:100%;min-height:875px}
+    .side-park{padding:14px;overflow:hidden;display:flex;flex-direction:column;min-height:0}
+    #parkDetail{width:100%;min-height:875px;max-height:calc(100vh - 410px);overflow:auto;padding-right:4px}
     .games-panel h2,.main-panel h2{font-size:16px;color:#cbd5ff;font-weight:700;letter-spacing:.3px;margin:0 0 14px}
     .game-card{display:grid;gap:10px;padding:14px;border:1px solid var(--stroke);background:rgba(8,15,34,.8);border-radius:18px;margin-bottom:12px;cursor:pointer;transition:.18s transform ease,.18s border-color ease}
     .game-card:hover{transform:translateY(-1px);border-color:rgba(139,92,246,.45)}
@@ -173,7 +173,7 @@
       .name-cell{min-width:180px}
       .sticky-col{background:linear-gradient(90deg,rgba(31,41,71,.99),rgba(31,41,71,.97) 80%,rgba(31,41,71,.7))}
 
-      #parkDetail{min-height:0}
+      #parkDetail{min-height:0;max-height:60vh;-webkit-overflow-scrolling:touch}
       .weather-panel{padding:12px;border-radius:14px;gap:10px}
       .weather-svg{aspect-ratio:1.2/0.9}
       .weather-grid{grid-template-columns:1fr 1fr;gap:8px}
